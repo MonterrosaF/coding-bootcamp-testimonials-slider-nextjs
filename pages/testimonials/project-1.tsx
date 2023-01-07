@@ -9,8 +9,8 @@ export default function BootcampTestimonialsSlider() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='w-screen h-screen flex justify-center items-center'>
-        <h1 className='font-bold text-9xl text-red-600'>Project 1</h1>
+      <main className='flex items-center justify-center w-screen h-screen'>
+        <h1 className='font-bold text-red-600 text-9xl'>Project 1</h1>
       </main>
     </>
   );
