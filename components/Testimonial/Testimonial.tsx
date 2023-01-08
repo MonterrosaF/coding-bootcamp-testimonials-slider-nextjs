@@ -1,22 +1,22 @@
-import { Testimonial } from '../../interfaces';
 import cn from 'classnames';
 import Image from 'next/image';
+import { TTestimonial } from '../../interfaces';
 
 type TestimonialProps = {
-  testimonial: Testimonial;
+  testimonial: TTestimonial;
   handleNext: () => void;
   handlePrev: () => void;
   isLast: boolean;
   isFirst: boolean;
 };
 
-const Testimonial = ({
+function Testimonial({
   testimonial,
   handleNext,
   handlePrev,
   isFirst,
   isLast,
-}: TestimonialProps) => {
+}: TestimonialProps) {
   return (
     <>
       <div className='md:w-1/2 md:relative'>
@@ -37,6 +37,7 @@ const Testimonial = ({
           </div>
           <div className='absolute left-0 right-0 flex gap-3 mx-auto bg-white md:mx-0 md:ml-20 -bottom-5 w-fit rounded-r-3xl rounded-l-3xl'>
             <button
+              type='button'
               onClick={handlePrev}
               disabled={isFirst}
               className={cn('flex px-3 py-4', { 'opacity-30': isFirst })}
@@ -49,6 +50,7 @@ const Testimonial = ({
               />
             </button>
             <button
+              type='button'
               className={cn('flex px-3 py-4', { 'opacity-30': isLast })}
               onClick={handleNext}
               disabled={isLast}
@@ -90,6 +92,6 @@ const Testimonial = ({
       </div>
     </>
   );
-};
+}
 
 export default Testimonial;

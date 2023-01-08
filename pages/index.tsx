@@ -1,11 +1,11 @@
-import TestimonialComponent from '../components/Testimonial/Testimonial';
 import Head from 'next/head';
 import useSWR from 'swr';
-import { Testimonial } from '../interfaces';
-import { fetcher } from '../utils/fetcher';
 import { useState } from 'react';
 import Image from 'next/image';
 import cn from 'classnames';
+import { fetcher } from '../utils/fetcher';
+import { TTestimonial } from '../interfaces';
+import TestimonialComponent from '../components/Testimonial/Testimonial';
 
 export default function Home() {
   const [currentId, setCurrentId] = useState(1);
@@ -26,7 +26,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.png' />
       </Head>
       <main className='flex flex-wrap px-8 overflow-hidden md:p-10 md:justify-center md:items-center md:h-screen'>
-        {data.map((t: Testimonial) => (
+        {data.map((t: TTestimonial) => (
           <div
             key={t.id}
             className={cn('w-full mt-5 relative', {
@@ -36,8 +36,8 @@ export default function Home() {
           >
             <TestimonialComponent
               testimonial={t}
-              handleNext={() => setCurrentId((prev) => prev + 1)}
-              handlePrev={() => setCurrentId((prev) => prev - 1)}
+              handleNext={() => setCurrentId(prev => prev + 1)}
+              handlePrev={() => setCurrentId(prev => prev - 1)}
               isFirst={currentId <= 1}
               isLast={currentId >= data.length}
             />

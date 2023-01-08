@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { allTestimonials } from '../../../data';
-import { Testimonial } from '../../../interfaces';
+import { TTestimonial } from '../../../interfaces';
 
 type ResponseError = {
   message: string;
@@ -9,12 +9,12 @@ type ResponseError = {
 
 export default function personHandler(
   req: NextApiRequest,
-  res: NextApiResponse<Testimonial | ResponseError>
+  res: NextApiResponse<TTestimonial | ResponseError>
 ) {
   const { query } = req;
   const { id } = query;
   const testimonial = allTestimonials.find(
-    (p) => p.id === parseInt(id as string)
+    p => p.id === parseInt(id as string, 10)
   );
 
   return testimonial

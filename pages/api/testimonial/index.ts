@@ -1,10 +1,10 @@
 import { NextApiResponse, NextApiRequest } from 'next';
 import { allTestimonials } from '../../../data';
-import { Testimonial } from '../../../interfaces';
+import { TTestimonial } from '../../../interfaces';
 
 export default function handler(
   _req: NextApiRequest,
-  res: NextApiResponse<Testimonial[]>
+  res: NextApiResponse<TTestimonial[]>
 ) {
   return res.status(200).json(allTestimonials);
 }
