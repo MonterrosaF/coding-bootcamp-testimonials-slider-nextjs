@@ -9,7 +9,7 @@ export const allTestimonials = [
   },
   {
     id: 2,
-    image: 'image-John.jpg',
+    image: 'image-john.jpg',
     name: 'John Tarkpor',
     description:
       "If you want to lay the best foundation posible I'd recommend taking this course. The depth the instructors go into is incredible. I now feel so confident about starting up as a profesional developer",
