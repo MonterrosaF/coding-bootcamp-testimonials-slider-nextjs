@@ -15,6 +15,8 @@ const customJestConfig = {
 
     '^@/pages/(.*)$': '<rootDir>/pages/$1',
   },
+  collectCoverage: true,
+  collectCoverageFrom: ['pages/**/*.{ts,tsx}', 'components/**/*.{ts,tsx}'],
   testEnvironment: 'jest-environment-jsdom',
 };
 

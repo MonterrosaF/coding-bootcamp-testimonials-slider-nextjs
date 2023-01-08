@@ -13,7 +13,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:coverage": "jest --watch --coverage",
+    "test:coverage": "jest --watchAll --coverage",
     "test:ci": "jest --ci"
   },
   "dependencies": {
