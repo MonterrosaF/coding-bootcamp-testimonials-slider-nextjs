@@ -5,6 +5,7 @@ import { Testimonial } from '../interfaces';
 import { fetcher } from '../utils/fetcher';
 import { useState } from 'react';
 import Image from 'next/image';
+import cn from 'classnames';
 
 export default function Home() {
   const [currentId, setCurrentId] = useState(1);
@@ -24,20 +25,26 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.png' />
       </Head>
-      <main className='flex flex-wrap px-8 overflow-hidden'>
+      <main className='flex flex-wrap px-8 overflow-hidden md:p-10 md:justify-center md:items-center md:h-screen'>
         {data.map((t: Testimonial) => (
-          <TestimonialComponent
+          <div
             key={t.id}
-            testimonial={t}
-            isShowing={currentId === t.id}
-            handleNext={() => setCurrentId((prev) => prev + 1)}
-            handlePrev={() => setCurrentId((prev) => prev - 1)}
-            isFirst={currentId <= 1}
-            isLast={currentId >= data.length}
-          />
+            className={cn('w-full mt-5 relative', {
+              hidden: currentId !== t.id,
+              'md:flex md:flex-row-reverse': currentId === t.id,
+            })}
+          >
+            <TestimonialComponent
+              testimonial={t}
+              handleNext={() => setCurrentId((prev) => prev + 1)}
+              handlePrev={() => setCurrentId((prev) => prev - 1)}
+              isFirst={currentId <= 1}
+              isLast={currentId >= data.length}
+            />
+          </div>
         ))}
       </main>
-      <div className='absolute bottom-0 w-full h-20'>
+      <div className='absolute bottom-0 w-full h-20 md:h-40 md:w-5/12'>
         <Image src='/images/pattern-curve.svg' alt='background' fill />
       </div>
     </>
