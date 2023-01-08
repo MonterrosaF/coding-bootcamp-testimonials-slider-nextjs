@@ -44,7 +44,7 @@ export default function Home() {
           </div>
         ))}
       </main>
-      <div className='absolute bottom-0 w-full h-20 md:h-40 md:w-5/12'>
+      <div className='relative w-full h-20 md:h-40 md:w-5/12 md:absolute md:bottom-0'>
         <Image src='/images/pattern-curve.svg' alt='background' fill />
       </div>
     </>
